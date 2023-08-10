@@ -2,15 +2,20 @@ import HeaderBar from './HeaderBar';
 import FooterBar from './FooterBar';
 
 function RootLayout(props) {
-  console.log(props)
-  return (
-    <div>
-      <HeaderBar />
+  return ( 
+    <>
+      {/* <React.Fragment> */}
+        <HeaderBar />
         {/* eslint-disable-next-line react/prop-types */}
         <main>{props.children}</main>
-      <FooterBar />
-    </div>
-  );
+        <FooterBar />
+    </>
+    );
+  // return [
+  //     <HeaderBar key="header-bar" />,
+  //     <main key="main">{props.children}</main>,
+  //     <FooterBar key="footer-bar" />
+  //   ];
 }
 
 export default RootLayout;
