@@ -2,8 +2,7 @@
 // import Description from './components/Description';
 // import List from "./components/RenderingProcessList"
 import RootLayout from './layout/RootLayout';
-import About from './pages/About';
-import Home from './pages/Home';
+import Practice from './pages/Practice/Practice';
 
 // {/* 홈페이지 : index.html */}
 // {/* 소개 페이지 : about.html */}
@@ -14,10 +13,9 @@ import Home from './pages/Home';
 function App() {
   //JSX 값 반환
   return (
-    <div>
+    <div className="App">
       <RootLayout>
-        {/* 페이지의 주요 콘텐츠 */} {/* props.children */}
-        <Home />
+        <Practice />
       </RootLayout>
     </div>
   )
