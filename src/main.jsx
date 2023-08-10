@@ -1,6 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
+import './styles/global.css'
 
 /* 
 JSX가 하는 일은 React 요소 생성 -> 마크업 생성
