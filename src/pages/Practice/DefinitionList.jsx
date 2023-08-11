@@ -3,39 +3,22 @@ import DisplayingData from './parts/DisplayingData';
 import ConditionalRendering from './parts/ConditionalRendering';
 import ConditionalDisplay from './parts/ConditionalDisplay.jsx';
 import RenderingLists from './parts/RenderingLists.jsx';
+import { statusMessage, imageType, isShowReactImage } from './parts/data';
 
 // 스타일 및 에셋 연결
 /* 데이터 */
-const imageType = 'react';
-
-const isShowReactImage = false;
-
-const statusMessage = [
-  '⌛️ 대기',
-  '⏳ 로딩 중...',
-  '✅ 로딩 성공!',
-  '❌ 로딩 실패.',
-];
-
-const reactLibrary = {
-  name: 'React',
-  author: '조던 워케(Jordan Walke)',
-  writtenIn: 'JavaScript',
-  type: 'JavaScript 라이브러리',
-  license: 'MIT',
-};
-
 function DefinitionList() {
   //배열 데이터 순환
-  const renderList = () => {
-    const renderListItem =message => (
+  const renderList = ({reverse = false} = {}) => {
+
+    const renderListItem = message => (
       <li key={message}>{message}</li>
     );
 
-    return statusMessage.map(renderListItem)
+    return (!reverse ? statusMessage : statusMessage.toReversed()).map(renderListItem)
   };
 
-  const allHidden = true;
+  const allHidden = false;
 
   return (
     <dl className="descriptionList">
