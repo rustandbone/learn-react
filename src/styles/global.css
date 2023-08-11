@@ -40,3 +40,17 @@ abbr[title] {
 [hidden] {
   display: none !important;
 }
+
+.primary {
+  padding: 20px;
+}
+
+
+.secondary {
+  padding: 10px;
+}
+
+.accent {
+  padding-inline: 12px;
+  color: red; 
+}

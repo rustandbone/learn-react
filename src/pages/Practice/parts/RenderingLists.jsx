@@ -1,3 +1,5 @@
+import { reactLibrary } from "./data";
+
 function RenderingLists({ renderList, statusMessage }) {
   return (
     <>
@@ -12,7 +14,15 @@ function RenderingLists({ renderList, statusMessage }) {
       </dd>
       <dd>
         <p>상태 메시지(status message) 배열을 역순 정렬하여 렌더링합니다.</p>
-        <ul className="renderList">{renderList({ reverse: true })}</ul>
+        {/* 외부에서 props 전달된 함수를 실행한 결과를 활용 */}
+        <ul className="renderList">{renderList({reverse:true})}</ul>
+
+        {/*  */}
+        {/* <ul className="renderList">
+          {[...statusMessage].reverse().map((message) => (
+            <li key={message}>{message}</li>
+          ))}
+        </ul> */}
       </dd>
       <dd>
         <p>
@@ -21,6 +31,17 @@ function RenderingLists({ renderList, statusMessage }) {
         </p>
         <dl className="reactLibrary">
           {/* 여기서 설명 목록으로 리스트 렌더링 합니다. */}
+          {/* <pre>{JSON.stringify((reactLibrary), null, 2)}</pre>
+          <pre>{JSON.stringify(Object.entries(reactLibrary), null, 2)}</pre> */}
+          {Object.entries(reactLibrary).map(([key, value]) => {
+            return (
+              <div key={key}>
+                <dt>{key}</dt>
+                <dd>{value}</dd>
+              </div>
+            )
+          } 
+          )}
         </dl>
       </dd>
     </>
