@@ -2,7 +2,9 @@
 // import Description from './components/Description';
 // import List from "./components/RenderingProcessList"
 import RootLayout from './layout/RootLayout';
+import Demo from './pages/Demo';
 import FilterableList from './pages/Practice/parts/FilterableList';
+import Practice from './pages/Practice/Practice';
 
 // {/* 홈페이지 : index.html */}
 // {/* 소개 페이지 : about.html */}
@@ -15,7 +17,9 @@ function App() {
   return (
     <div className="App">
       <RootLayout>
-        <FilterableList />
+        <Demo />
+        {/* <FilterableList /> */}
+        {/* <Practice /> */}
       </RootLayout>
     </div>
   )
