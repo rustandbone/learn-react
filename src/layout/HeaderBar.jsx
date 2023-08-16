@@ -3,7 +3,7 @@ import styles from '@/styles/HeaderBar.module.css';
 
 function HeaderBar() {
   return (
-    <header className={styles.container}>
+    <header className={`bg-indigo-950 text-indigo-50 p-5`}>
       <Heading />
     </header>
   )
