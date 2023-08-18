@@ -6,6 +6,7 @@ import Demo from './pages/Demo';
 import FilterableList from './pages/Practice/parts/FilterableList';
 import Practice from './pages/Practice/Practice';
 import LearnStateAndEffects from './pages/LearnStateAndEffects';
+import ProductList from './pages/ProductList';
 
 // {/* 홈페이지 : index.html */}
 // {/* 소개 페이지 : about.html */}
@@ -19,6 +20,7 @@ function App() {
     <div className="App">
       <RootLayout>
         <LearnStateAndEffects />
+        <ProductList />
         {/* <Demo /> */}
         {/* <FilterableList /> */}
         {/* <Practice /> */}
