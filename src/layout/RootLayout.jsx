@@ -1,21 +1,17 @@
 import HeaderBar from './HeaderBar';
 import FooterBar from './FooterBar';
+import { Outlet } from 'react-router-dom';
 
 function RootLayout(props) {
   return ( 
     <>
-      {/* <React.Fragment> */}
         <HeaderBar />
-        {/* eslint-disable-next-line react/prop-types */}
-        <main>{props.children}</main>
+        <main className='p-5'>
+          <Outlet />
+        </main>
         <FooterBar />
     </>
     );
-  // return [
-  //     <HeaderBar key="header-bar" />,
-  //     <main key="main">{props.children}</main>,
-  //     <FooterBar key="footer-bar" />
-  //   ];
 }
 
 export default RootLayout;
