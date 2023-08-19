@@ -1,13 +1,13 @@
-import Heading from "../components/Heading";
-import styles from '@/styles/HeaderBar.module.css';
+import Heading from '@/components/Heading';
+import Nav from './Nav';
 
 function HeaderBar() {
   return (
-    <header className={`bg-indigo-950 text-indigo-50 p-5`}>
+    <header className="flex justify-between items-center p-5 bg-indigo-950 text-indigo-50">
       <Heading />
+      <Nav />
     </header>
-  )
+  );
 }
 
 export default HeaderBar;
-
