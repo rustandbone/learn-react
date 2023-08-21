@@ -1,8 +1,9 @@
 import { Route, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import RootLayout from './layout/RootLayout';
-import Home from './pages/Home';
-import Products from './pages/Products';
-import Contact from './pages/Contact';
+import Home from './pages/Router/Home';
+import Products from './pages/Router/Products';
+import Contact from './pages/Router/Contact';
+import ProductEdit from './pages/Router/ProductEdit';
 
 // 구버전처럼 사용할 사용자를 위한 최신 방법
 // 배열 → JSX 
@@ -12,6 +13,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Home />} />
       <Route path="products" element={<Products />} />
+      <Route path="product/edit/:productId" element={<ProductEdit />} />
       <Route path="contact" element={<Contact />} />
     </Route>
   )
