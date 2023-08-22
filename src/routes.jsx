@@ -4,6 +4,8 @@ import Home from './pages/Router/Home';
 import Products from './pages/Router/Products';
 import Contact from './pages/Router/Contact';
 import ProductEdit from './pages/Router/ProductEdit';
+import SignUp from './pages/SignUp';
+import SignIn from './pages/SignIn';
 
 // 구버전처럼 사용할 사용자를 위한 최신 방법
 // 배열 → JSX 
@@ -12,6 +14,8 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Home />} />
+      <Route path="signup" element={<SignUp />} />
+      <Route path="signin" element={<SignIn />} />
       <Route path="products" element={<Products />} />
       <Route path="product/edit/:productId" element={<ProductEdit />} />
       <Route path="contact" element={<Contact />} />
