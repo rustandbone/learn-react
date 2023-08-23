@@ -6,6 +6,9 @@ export default {
       fontFamily: {
         suit: ['SUIT Variable'],
       },
+      backgroundImage: {
+        mainCover: 'url("/cover.jpg")',
+      },
     },
   },
   plugins: [],
