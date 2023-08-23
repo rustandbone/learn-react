@@ -1,4 +1,5 @@
 import pb from "@/api/pocketbase";
+import debounce from "@/utils/debounce";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
@@ -22,13 +23,13 @@ export default function SignIn() {
     navigate('/');
   }
 
-  const handleInput = (e) => {
+  const handleInput = debounce((e) => {
     const {name, value} = e.target;
     setFormState({
       ...formState,
       [name]:value
     })
-  }
+  }, 500)
 
   return (
     <div>
