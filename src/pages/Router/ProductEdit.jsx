@@ -8,7 +8,7 @@ import debounce from "@/utils/debounce";
 const initialFormState = {
   title : '',
   color : '',
-  price : 0
+  price : ''
 }
 
 export default function ProductEdit() {
@@ -42,12 +42,7 @@ export default function ProductEdit() {
     })
   }
 
-  const handleDebounceChangeInput = debounce(({target}) => {
-    setFormState({
-      ...formState,
-      [target.name]: target.value,
-    })
-  })
+  const handleDebounceChangeInput = debounce(handleChangeInput, 500)
 
 
   const handleEditProduct = (e) => {
@@ -111,7 +106,7 @@ export default function ProductEdit() {
           {/* price */}
           <div>
             <label htmlFor={priceId}>가격</label>
-            <input type="number" name="price" id={priceId} value={formState.price} onChange={handleChangeInput} />
+            <input type="number" name="price" id={priceId} step={1000} defaultValue={formState.price} onChange={handleDebounceChangeInput} />
           </div>
           <div>
             <button type="submit">수정</button>
