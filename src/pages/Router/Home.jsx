@@ -1,7 +1,9 @@
 function Home() {
   return (
-    <div>
-      <h2 className="text-emerald-500">Home</h2>
+    <div className="grid place-content-center bg-mainCover bg-cover bg-center min-h-[calc(100vh_-_200px)]">
+      <h2 className="text-white tracking-widest font-extralight text-4xl uppercase">Shop
+        <span className="text-[60px] text-yellow-400">.</span>
+      </h2>
     </div>
   );
 }
