@@ -95,7 +95,7 @@ function Abbr(props) {
 // console.log(React.createElement(Abbr)) //<Abbr />
 
 //App 함수 컴포넌트 만들기
-const App = (props) => {
+const App = () => {
   return (
     <div>
       <Abbr title="Document Object Model">

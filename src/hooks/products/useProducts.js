@@ -1,5 +1,3 @@
-import useFetchData from '../useFetchData';
-
 const apiEndpoint = import.meta.env.VITE_PB_API;
 
 export function useRead() {}

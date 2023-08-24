@@ -1,4 +1,3 @@
-import styles from '@/styles/FooterBar.module.css';
 import { useState } from 'react';
 
 function FooterBar() {

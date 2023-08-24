@@ -47,7 +47,7 @@ export default function useFetchData(endpoint, options = {}) {
     return () => {
       controller.abort();
     };
-  }, [endpoint]);
+  }, [endpoint, options]);
 
   return { data, isLoading, error };
 }
