@@ -1,15 +1,21 @@
-import { createBrowserRouter, RouterProvider, Link, NavLink } from 'react-router-dom';
-import RootLayout from './layout/RootLayout';
+import { RouterProvider } from 'react-router-dom';
 import router from './routes';
 import ThemeProvider from './contexts/Theme';
+import AuthProvider from './contexts/Auth';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
-    <ThemeProvider>
-      <div className="App">
-        <RouterProvider router={router} />
-      </div>
-    </ThemeProvider>
+    <>
+      <ThemeProvider>
+        <AuthProvider>
+            <div className="App">
+              <RouterProvider router={router} />
+            </div>
+        </AuthProvider>
+      </ThemeProvider>
+      <Toaster /> 
+    </>
   );
 }
 
