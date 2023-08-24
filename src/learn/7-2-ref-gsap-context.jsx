@@ -1,7 +1,7 @@
 import { gsap } from 'gsap'
 import { useLayoutEffect, useRef } from "react"
 
-export default function RefExampleReferencingDOM() {
+export default function GSAP_Context() {
   return (
     <>
       <h2 className="mb-10">컴포넌트 내부의 DOM 요소를 직접 참조하는 Refs</h2>
@@ -20,11 +20,15 @@ function Circle() {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      //CSS 선택자 사용하기(GSAP 사용자 방식)
-      // gsap.to('img', { })
+      // 1. CSS 선택자 사용하기 (GSAP 사용자 방식)
+      gsap.fromTo(
+        'img',
+        { scale: 0, y: -100, opacity: 0 },
+        { scale: 1.25, y: -0, opacity: 0.6, rotate: 360 * 3 }
+      );
 
       //2.Refs 사용하기(React 방식)
-      gsap.to(imageRef.current, { })
+      // gsap.to(imageRef.current, { })
     }, componentRef);
 
     return () => {
