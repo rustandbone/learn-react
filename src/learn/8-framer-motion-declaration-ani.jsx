@@ -63,12 +63,13 @@ function Circle() {
       whileInView={{
         y: 0,
         opacity: 1,
-        scale: 6
+        scale: 1.6
       }}
       viewport={{
         once: true,
       }}
       transition={{
+        duration: 4,
         type: 'spring',
         stiffness: 400,
         damping: 10
