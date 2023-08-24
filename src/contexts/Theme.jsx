@@ -1,4 +1,5 @@
 import { createContext, useContext, useMemo, useReducer } from 'react';
+import { node, string } from 'prop-types';
 
 // 1. Context 생성
 const ThemeContext = createContext();
@@ -43,31 +44,31 @@ export const switchMode = () => ({
 
 //Reducer Function
 const reducer = (state, action) => {
-  switch(action.type) {
+  switch (action.type) {
 
     case SWITCH_MODE:
       return {
-        ...state, 
+        ...state,
         currentMode: state.currentMode.includes('light') ? 'dark' : 'light',
       };
     case CHANGE_LIGHT_THEME:
       return {
-        ...state, 
+        ...state,
         light: action.payload
       };
     case CHANGE_DARK_THEME:
       return {
-        ...state, 
+        ...state,
         dark: action.payload
       };
     case RESET_THEME:
       return initialTheme;
-    default: 
+    default:
       return state;
   }
 }
 
-function ThemeProvider({displayName = "ThemeContext.Provider", children}) {
+function ThemeProvider({ displayName = "ThemeContext.Provider", children }) {
   const [theme, dispatch] = useReducer(reducer, initialTheme);
 
   //메모이제이션
@@ -79,9 +80,14 @@ function ThemeProvider({displayName = "ThemeContext.Provider", children}) {
     <ThemeContext.Provider
       displayName={displayName}
       value={themeValue}>
-        {children}
+      {children}
     </ThemeContext.Provider>
   )
+}
+
+ThemeProvider.propTypes = {
+  displayName: string,
+  children: node
 }
 
 export default ThemeProvider;
@@ -89,7 +95,7 @@ export default ThemeProvider;
 //커스텀 훅
 export function useTheme() {
   const contextValue = useContext(ThemeContext);
-  if(!contextValue) {
+  if (!contextValue) {
     throw new Error('useTheme은 ThemeProvider 내부에서만 사용 가능합니다.')
   }
   return contextValue.theme;
