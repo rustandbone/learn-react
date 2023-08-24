@@ -4,8 +4,6 @@ import useFetchData from "@/hooks/useFetchData";
 import { getPbImageURL } from './../../utils/getPbImageURL';
 import { Link } from "react-router-dom";
 import { numberWithComma } from "@/utils";
-import { useEffect } from "react";
-import { useProducts } from "@/api/useProducts";
 
 //PB -> READ / CREATE / UPDATE / DELETE
 //HTTP METHOD

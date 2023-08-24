@@ -52,6 +52,22 @@ export default function SignIn() {
         </form>
 
         <Link to="/signup">회원가입</Link>
+        {
+          true && 
+        <button type="button" onClick={async() => {
+          if(confirm('정말 탈퇴하실 건가요?')) {
+            if(pb.authStore.model) {
+              try {
+                await pb.collection('users').delete(pb.authStore.model.id)
+                console.log('탈퇴 성공')
+              } catch(error) {
+                console.log(error);
+              }
+            }
+          }
+          console.log('탈퇴 성공')
+        }}>탈퇴</button>
+        }
     </div>
   )
 }

@@ -1,4 +1,6 @@
+import { ProductType } from "@/@types/global.d";
 import { getPbImageURL, numberWithComma } from "@/utils";
+import { shape, string, number }  from "prop-types";
 
 function ProductItem({item /* {id, created, title, color, price, photo} */}) {
   return (
@@ -12,6 +14,19 @@ function ProductItem({item /* {id, created, title, color, price, photo} */}) {
       </figure>
     </li>
   )
+}
+
+export const PRODUCT_TYPE = shape({
+  id: string,
+  photo: string,
+  title: string,
+  color: string,
+  price: number,
+})
+
+ProductItem.propTypes = {
+  item: ProductType.isRequired
+  // item: PRODUCT_TYPE.isRequired
 }
 
 export default ProductItem;

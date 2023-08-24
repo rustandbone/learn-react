@@ -1,3 +1,5 @@
+import { oneOf, string } from 'prop-types'
+
 function GoToButton({ 
   direction, label, 
   //나머지 전달된 속성을 모은 객체
@@ -37,5 +39,11 @@ function GoToButton({
     </button>
   )
 }
+
+
+GoToButton.propTypes = {
+  direction: oneOf(['down', 'up']),
+  label: string
+};
 
 export default GoToButton

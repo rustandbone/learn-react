@@ -17,7 +17,7 @@ export default function SignUp() {
   const handleRegister = async (e) => {
     e.preventDefault();
     //PocketBase SDK 인증 요청
-    const {name, username, email, password, passwordConfirm} = formState;
+    const {password, passwordConfirm} = formState;
     if(password !== passwordConfirm) {
       alert('비밀번호가 일치하지 않습니다. 다시 확인해보세요.')
     }
