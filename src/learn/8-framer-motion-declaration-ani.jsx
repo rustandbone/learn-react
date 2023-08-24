@@ -44,7 +44,7 @@ export default function FramerMotion_Animation() {
           </svg>
         </button>
       </div>
-      <div className="flex gap-10">
+      <div className="flex flex-col gap-[700px]">
         {
           keys.map(key => (
             <Circle key={key} />
@@ -58,8 +58,16 @@ export default function FramerMotion_Animation() {
 function Circle() {
   return (
     <motion.figure 
-      initial={{y: -150}}
+      initial={{y: -150, opacity: 0}}
       animate={{y: 0}}
+      whileInView={{
+        y: 0,
+        opacity: 1,
+        scale: 6
+      }}
+      viewport={{
+        once: true,
+      }}
       transition={{
         type: 'spring',
         stiffness: 400,
