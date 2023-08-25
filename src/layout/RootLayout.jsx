@@ -45,6 +45,16 @@ function RootLayout({displaySideMenu = false}) {
                     Framer Motion 애니메이션
                   </Link>
                 </li>
+                <li>
+                  <Link to="/learn/09">
+                    Prop Types 유효성 검사
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/learn/10">
+                    로컬 스토리지 활용
+                  </Link>
+                </li>
               </ul>
             </nav>
           }

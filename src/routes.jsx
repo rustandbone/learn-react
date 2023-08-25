@@ -17,13 +17,16 @@ import FramerMotion_Animation from './learn/8-framer-motion-declaration-ani';
 import GSAP_Animation from './learn/7-ref-3-gsap-animation';
 import GSAP_Context from './learn/7-2-ref-gsap-context';
 import ProtectRoute from './components/ProtectRoute';
+import ComponentPropTyeps from './learn/9-component-prop-types';
+import LocalStorage from './learn/10-local-storage';
+import ProductNew from './pages/Router/ProductNew';
 
 // 구버전처럼 사용할 사용자를 위한 최신 방법
 // 배열 → JSX 
 const router = createBrowserRouter(
   // 유틸리티 함수
   createRoutesFromElements(
-    <Route path="/" element={<RootLayout displaySideMenu={false} />}>
+    <Route path="/" element={<RootLayout displaySideMenu={true} />}>
       <Route index element={<Home />} />
       {/* <Route path="learn/01" element={<PassingProps />} />
       <Route path="learn/02" element={<LiftingStateUp />} /> */}
@@ -38,10 +41,17 @@ const router = createBrowserRouter(
         <Route path="07/01" element={<GSAP_Animation />} />
         <Route path="07/02" element={<GSAP_Context />} />
         <Route path="08" element={<FramerMotion_Animation />} />
+        <Route path="09" element={<ComponentPropTyeps />} />
+        <Route path="10" element={<LocalStorage />} />
       </Route>
       <Route path="signup" element={<SignUp />} />
       <Route path="signin" element={<SignIn />} />
       <Route path="products" element={<Products />} />
+      <Route path="product/new" element={
+        <ProtectRoute>
+          <ProductNew />
+        </ProtectRoute>
+      } />
       <Route path="product/edit/:productId" element={
         <ProtectRoute>
           <ProductEdit />
