@@ -1,9 +1,11 @@
 import pb from "@/api/pocketbase";
 import debounce from "@/utils/debounce";
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import { useNavigate, Link } from "react-router-dom";
 
 export default function SignIn() {
+  const { state } = useLocation();
   const navigate = useNavigate();
   
   const [formState, setFormState] = useState({
@@ -15,12 +17,18 @@ export default function SignIn() {
     e.preventDefault();
     //PocketBase SDK 인증 요청
     const { email, password } = formState;
-    console.log(email, password)
 
-    const authData = await pb.collection('users').authWithPassword(email, password)
-    console.log(authData);
+    try {
+      await pb.collection('users').authWithPassword(email, password)
 
-    navigate('/');
+      if(!state) {
+        navigate('/');
+      } else {
+        navigate(state.wishLocationPath)
+      } 
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   const handleInput = debounce((e) => {
