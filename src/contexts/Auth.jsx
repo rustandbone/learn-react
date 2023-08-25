@@ -8,6 +8,7 @@
 // 2. JSX 또는 이벤트 핸들러 내부에서 값을 사용한다
 
 import pb from '@/api/pocketbase';
+import useStorage from '@/hooks/useStorage';
 import { string, node } from 'prop-types';
 import { createContext, useContext, useEffect, useState } from 'react';
 
@@ -23,10 +24,25 @@ const initialAuthState = {
 
 // Context.Provider 래퍼 컴포넌트 작성
 function AuthProvider({displayName = 'AuthProvider', children}) {
+  const { storageData } = useStorage('pocketbase_auth');
+
+  //인증 상태 유지
+  useEffect(() => {
+    if(storageData) {
+      const { token, model } = storageData;
+      setAuthState({
+        isAuth: !!model,
+        user: model,
+        token,
+      })
+    }
+  }, [storageData])
+
   // 인증 상태
   const [authState, setAuthState] = useState(initialAuthState);
 
   useEffect(() => {
+    //업데이트 될 때만 상태 변경
     const unsub = pb.authStore.onChange((token, model) => {
       console.log(token, model, !!model);
       setAuthState(state => ({
