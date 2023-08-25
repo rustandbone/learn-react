@@ -1,8 +1,15 @@
+import { Helmet } from "react-helmet-async";
+
 function Contact() {
   return (
-    <div>
-      <h1 className="text-emerald-500">Contact</h1>
-    </div>
+    <>
+      <Helmet>
+        <title>Contact - ReactBird</title>
+      </Helmet>
+      <div>
+        <h1 className="text-emerald-500">Contact</h1>
+      </div>
+    </>
   );
 }
 

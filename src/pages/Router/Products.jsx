@@ -4,6 +4,7 @@ import useFetchData from "@/hooks/useFetchData";
 import { getPbImageURL } from './../../utils/getPbImageURL';
 import { Link } from "react-router-dom";
 import { numberWithComma } from "@/utils";
+import { Helmet } from "react-helmet-async";
 
 //PB -> READ / CREATE / UPDATE / DELETE
 //HTTP METHOD
@@ -37,26 +38,31 @@ function Products() {
 
   if(data) {
     return (
-      <div>
-        <h1 className="text-emerald-950 text-2xl mb-5">Products</h1>
-        <ul className="grid grid-cols-3">
-          {
-            data.items?.map(item => (
-              <li key={item.id} className="justify-self-center">
-                <Link to={`/product/edit/${item.id}`}>
-                  <figure>
-                    <img src={getPbImageURL(item, 'photo')} alt={item.title} className="h-[160px] object-cover mx-auto" />
-                    <figcaption className='flex flex-col gap-1 items-center mt-2'>
-                      <span>{item.title}({item.color})</span>
-                      <span className='font-semibold'>{numberWithComma(item.price)}</span>
-                    </figcaption>
-                  </figure>
-                </Link>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
+      <>
+        <Helmet>
+          <title>Products - ReactBird</title>
+        </Helmet>
+        <div>
+          <h1 className="text-emerald-950 text-2xl mb-5">Products</h1>
+          <ul className="grid grid-cols-3">
+            {
+              data.items?.map(item => (
+                <li key={item.id} className="justify-self-center">
+                  <Link to={`/product/edit/${item.id}`}>
+                    <figure>
+                      <img src={getPbImageURL(item, 'photo')} alt={item.title} className="h-[160px] object-cover mx-auto" />
+                      <figcaption className='flex flex-col gap-1 items-center mt-2'>
+                        <span>{item.title}({item.color})</span>
+                        <span className='font-semibold'>{numberWithComma(item.price)}</span>
+                      </figcaption>
+                    </figure>
+                  </Link>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </>
     );
   }
 }
